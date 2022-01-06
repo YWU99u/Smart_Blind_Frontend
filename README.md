@@ -1,4 +1,10 @@
 # Smart_Blind_Frontend
 
 Frontend Website
-c
+
+## Components
+
+Login Page
+
+- Home Page
+  -- first home page
