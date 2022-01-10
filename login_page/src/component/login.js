@@ -11,6 +11,7 @@ import {
   Link,
 } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import GoogleLogin from "react-google-login";
 
 const Login = () => {
   const paperStyle = {
@@ -21,7 +22,9 @@ const Login = () => {
   };
   const avatarStyle = { backgroundColor: "#002c80a1" };
   const btstyle = { margin: "8px 0" };
-
+  const responseGoogle = (response) => {
+    console.log(response);
+  };
   return (
     <Grid>
       <Paper elevation={10} style={paperStyle}>
@@ -33,8 +36,8 @@ const Login = () => {
         </Grid>
 
         <TextField
-          label="Username"
-          placeholder="Enter Username"
+          label="Email"
+          placeholder="Enter Email Address"
           fullWidth
           required
         />
@@ -71,9 +74,17 @@ const Login = () => {
         <Typography>
           Do you have an account ?<Link href="#">Sign Up</Link>
         </Typography>
+        <GoogleLogin
+          clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+          buttonText="Login"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={"single_host_origin"}
+        />
       </Paper>
     </Grid>
   );
+  document.getElementById("googleButton");
 };
 
 export default Login;
